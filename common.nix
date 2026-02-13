@@ -1,4 +1,9 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   colorschemes.gruvbox = {
     enable = true;
@@ -115,7 +120,7 @@
     swapfile = false;
   };
   plugins = {
-          telescope = {
+    telescope = {
       enable = true;
       keymaps = {
         "<leader>fg" = "live_grep";
@@ -177,6 +182,11 @@
         };
       };
     };
+
+    # ts-autotag = {
+    #   enable = true;
+    # };
+
     autoclose = {
       enable = true;
     };
@@ -191,6 +201,10 @@
     web-devicons.enable = true;
     rainbow-delimiters.enable = true;
     lualine.enable = true;
+    which-key.enable = true;
+    todo-comments.enable = true;
+    treesitter-context.enable = true;
+
     blink-cmp = {
       enable = true;
       settings = {
@@ -223,12 +237,7 @@
         vim
         vimdoc
         yaml
-        python
-        rust
         html
-        css
-        typst
-        latex
       ];
       nixGrammars = true;
       settings = {
@@ -265,7 +274,18 @@
     illuminate = {
       enable = true;
     };
+    conform-nvim = {
+      enable = true;
+      settings = {
+        format_on_save = {
+          lsp_fallback = true;
+          timeout_ms = 500;
+        };
+        formatters_by_ft = {
+          nix = [ "nixfmt" ];
+        };
+      };
+    };
 
   };
 }
-

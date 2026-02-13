@@ -1,12 +1,21 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.typstConfig;
-in 
+in
 {
   options.typstConfig = with lib; {
     enable = mkEnableOption "typst config";
     language = mkOption {
-      type = types.enum [ "de-DE" "en-US" "en-GB" ];
+      type = types.enum [
+        "de-DE"
+        "en-US"
+        "en-GB"
+      ];
       default = "de-DE";
     };
   };
@@ -23,12 +32,7 @@ in
 
       treesitter = {
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-          python
-          rust
-          html
-          css
           typst
-          latex
         ];
       };
       lsp = {
@@ -44,16 +48,6 @@ in
           tinymist = {
             enable = true;
           };
-          texlab = {
-            enable = true;
-          };
-          cssls = {
-            enable = true;
-          };
-          html = {
-            enable = true;
-          };
-
         };
       };
     };
