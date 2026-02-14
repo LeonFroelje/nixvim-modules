@@ -35,11 +35,11 @@
     };
 
     # Add extra global tools that were in your original monolithic config
-    environment.systemPackages = with pkgs; [
-      ripgrep
-      fd
-      nixfmt
-      typstyle
-    ];
+    # environment.systemPackages = with pkgs; [
+    #   ripgrep
+    #   fd
+    #   nixfmt
+    #   typstyle
+    # ];
   };
 }
