@@ -1,12 +1,18 @@
-{pkgs, lib, config, ... }:
-let cfg = config.pythonConfig;
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+let
+  cfg = config.pythonConfig;
 in
 {
-  options.pythonConfig = with lib; { 
+  options.pythonConfig = with lib; {
     enable = mkEnableOption "Neovim Python config";
     extraGrammars = mkOption {
       type = types.listOf derivation;
-      default = [];
+      default = [ ];
     };
   };
   config = lib.mkIf cfg.enable {
@@ -16,24 +22,23 @@ in
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           python
           jinja
-        ]; 
+        ];
       };
       lsp = {
         servers = {
           jedi_language_server = {
             enable = true;
-            onAttach.function = 
-              "client.server_capabilities.documentFormattingProvider = false" 
-              + 
-              "\n"
-              + 
-              "client.server_capabilities.documentRangeFormattingProvider = false";
+            onAttach.function =
+              "client.server_capabilities.documentFormattingProvider = false"
+              + "\n"
+              + "client.server_capabilities.documentRangeFormattingProvider = false";
           };
           ruff = {
             enable = true;
           };
         };
       };
+      conform-nvim.settings.formatters_by_ft.python = [ "ruff_format" ];
     };
   };
 }

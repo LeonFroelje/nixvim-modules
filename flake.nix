@@ -72,6 +72,7 @@
               language = "en-US";
             };
           };
+          all = import ./all.nix;
           common = import ./common.nix;
         };
 

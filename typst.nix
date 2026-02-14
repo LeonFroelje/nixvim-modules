@@ -39,7 +39,7 @@ in
         servers = {
           ltex_plus = {
             enable = true;
-            package = null;
+            # package = null;
             cmd = [ "ltex-ls-plus" ];
             settings = {
               ltex.language = cfg.language;
@@ -50,6 +50,7 @@ in
           };
         };
       };
+      conform-nvim.settings.formatters_by_ft.typst = [ "typstyle" ];
     };
   };
 }
