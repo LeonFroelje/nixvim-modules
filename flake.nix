@@ -31,6 +31,7 @@
         tofu = ./tofu.nix;
         bash = ./bash.nix;
         javascript = ./javascript.nix;
+        svelte = ./svelte.nix;
         # latex = ./latex.nix;
         # typst = ./typst.nix;
       };
