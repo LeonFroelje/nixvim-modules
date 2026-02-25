@@ -5,12 +5,11 @@
   ...
 }:
 let
-  cfg = config.tofuConfig;
+  cfg = config.svelteConfig;
 in
 {
-  options.tofuConfig.enable = lib.mkEnableOption "OpenTofu support";
   config = lib.mkIf cfg.enable {
-    plugins.treesitter.grammarPackages = [ pkgs.vimPlugins.nvim-treesitter.builtGrammars.terraform ];
+    plugins.treesitter.grammarPackages = [ pkgs.vimPlugins.nvim-treesitter.builtGrammars.svelte ];
     plugins.lsp.servers = {
       svelte.enable = true;
     };
