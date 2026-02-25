@@ -10,10 +10,10 @@ in
 {
   options.pythonConfig = with lib; {
     enable = mkEnableOption "Neovim Python config";
-    extraGrammars = mkOption {
-      type = types.listOf derivation;
-      default = [ ];
-    };
+    # extraGrammars = mkOption {
+    #   type = types.listOf derivation;
+    #   default = [ ];
+    # };
   };
   config = lib.mkIf cfg.enable {
     plugins = {
