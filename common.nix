@@ -108,6 +108,12 @@
     expandtab = true;
     relativenumber = true;
     swapfile = false;
+    foldmethod = "expr";
+    foldexpr = "v:lua.vim.treesitter.foldexpr()";
+    foldtext = "v:lua.vim.treesitter.foldtext()"; # Gives nicely formatted fold text (Neovim 0.10+)
+    foldlevel = 99; # Start with everything open
+    foldlevelstart = 99; # Start with everything open
+    foldenable = true; # Enable folding
   };
   plugins = {
     telescope = {
