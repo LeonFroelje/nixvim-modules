@@ -98,6 +98,15 @@
         desc = "Go to previous error";
       };
     }
+    {
+      mode = "n";
+      key = "<leader>ca";
+      action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+      options = {
+        silent = true;
+        desc = "LSP Code Actions";
+      };
+    }
   ];
   opts = {
     background = "dark";
@@ -117,6 +126,11 @@
   };
   plugins = {
     telescope = {
+      extensions = {
+        ui-select = {
+          enable = true;
+        };
+      };
       enable = true;
       keymaps = {
         "<leader>fg" = "live_grep";
@@ -167,12 +181,6 @@
         };
         "<C-f>" = {
           action = "current_buffer_fuzzy_find";
-        };
-        "<leader>ca" = {
-          action = "lsp_code_actions";
-          options = {
-            desc = "LSP Code Actions";
-          };
         };
       };
     };
