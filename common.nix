@@ -83,7 +83,7 @@
     {
       mode = "n";
       key = "<leader>j";
-      action = "<cmd>lua local sev = vim.diagnostic.severity.ERROR; local ft = vim.bo.filetype; if ft == 'typst' or ft == 'tex' or ft == 'markdown' then sev = nil end; vim.diagnostic.goto_next({ severity = sev })<CR>";
+      action = "<cmd>lua local sev = vim.diagnostic.severity.ERROR; local ft = vim.bo.filetype; if ft == 'typ' or ft == 'tex' or ft == 'markdown' then sev = nil end; vim.diagnostic.goto_next({ severity = sev })<CR>";
       options = {
         silent = true;
         desc = "Go to next error (or any diagnostic in prose)";
@@ -92,7 +92,7 @@
     {
       mode = "n";
       key = "<leader>k";
-      action = "<cmd>lua local sev = vim.diagnostic.severity.ERROR; local ft = vim.bo.filetype; if ft == 'typst' or ft == 'tex' or ft == 'markdown' then sev = nil end; vim.diagnostic.goto_prev({ severity = sev })<CR>";
+      action = "<cmd>lua local sev = vim.diagnostic.severity.ERROR; local ft = vim.bo.filetype; if ft == 'typ' or ft == 'tex' or ft == 'markdown' then sev = nil end; vim.diagnostic.goto_prev({ severity = sev })<CR>";
       options = {
         silent = true;
         desc = "Go to previous error (or any diagnostic in prose)";
