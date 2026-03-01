@@ -44,6 +44,10 @@ in
             settings = {
               ltex.language = cfg.language;
             };
+            onAttach = {
+              function = ''require(" ltex_extra ").setup { your_opts }'';
+
+            };
           };
           tinymist = {
             enable = true;
