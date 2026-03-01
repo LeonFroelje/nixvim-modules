@@ -53,6 +53,9 @@ in
       conform-nvim.settings.formatters_by_ft.typst = [ "typstyle" ];
       ltex-extra = {
         enable = true;
+        settings = {
+          loadLangs = [ cfg.language ];
+        };
       };
     };
   };
