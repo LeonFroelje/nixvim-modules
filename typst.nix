@@ -44,10 +44,6 @@ in
             settings = {
               ltex.language = cfg.language;
             };
-            onAttach = {
-              function = ''require(" ltex_extra ").setup { your_opts }'';
-
-            };
           };
           tinymist = {
             enable = true;
@@ -55,12 +51,12 @@ in
         };
       };
       conform-nvim.settings.formatters_by_ft.typst = [ "typstyle" ];
-      ltex-extra = {
-        enable = true;
-        settings = {
-          loadLangs = [ cfg.language ];
-        };
-      };
+      # ltex-extra = {
+      #   enable = true;
+      #   settings = {
+      #     loadLangs = [ cfg.language ];
+      #   };
+      # };
     };
   };
 }
