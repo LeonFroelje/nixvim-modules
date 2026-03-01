@@ -82,30 +82,20 @@
     }
     {
       mode = "n";
-      key = "<leader>j"; # You can change this to whatever key you want
-      action = ''
-        function()
-          vim.diagnostic.goto_next({
-            severity = vim.diagnostic.severity.ERROR
-          })
-        end
-      '';
+      key = "<leader>j";
+      action = "<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>";
       options = {
         silent = true;
+        desc = "Go to next error";
       };
     }
     {
       mode = "n";
-      key = "<leader>k"; # You can change this to whatever key you want
-      action = ''
-        function()
-          vim.diagnostic.goto_prev({
-            severity = vim.diagnostic.severity.ERROR
-          })
-        end
-      '';
+      key = "<leader>k";
+      action = "<cmd>lua vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })<CR>";
       options = {
         silent = true;
+        desc = "Go to previous error";
       };
     }
   ];
@@ -171,6 +161,12 @@
         };
         "<C-f>" = {
           action = "current_buffer_fuzzy_find";
+        };
+        "<leader>ca" = {
+          action = "lsp_code_actions";
+          options = {
+            desc = "LSP Code Actions";
+          };
         };
       };
     };
