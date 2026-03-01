@@ -123,7 +123,8 @@
     foldlevel = 99; # Start with everything open
     foldlevelstart = 99; # Start with everything open
     foldenable = true; # Enable folding
-    textwidth = 80;
+    textwidth = 100;
+    colorcolumn = "+1";
     # t: Auto-wrap normal text as you type
     # c: Auto-wrap comments as you type
     # q: Allow formatting comments with 'gq'
