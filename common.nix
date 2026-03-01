@@ -123,6 +123,12 @@
     foldlevel = 99; # Start with everything open
     foldlevelstart = 99; # Start with everything open
     foldenable = true; # Enable folding
+    textwidth = 80;
+    # t: Auto-wrap normal text as you type
+    # c: Auto-wrap comments as you type
+    # q: Allow formatting comments with 'gq'
+    # j: Remove comment leaders when joining lines
+    formatoptions = "tcqj";
   };
   plugins = {
     telescope = {
