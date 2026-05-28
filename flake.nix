@@ -32,8 +32,8 @@
         bash = ./bash.nix;
         javascript = ./javascript.nix;
         svelte = ./svelte.nix;
-        # latex = ./latex.nix;
-        # typst = ./typst.nix;
+        latex = ./latex.nix;
+        typst = ./typst.nix;
       };
     in
     {
@@ -45,27 +45,6 @@
         }) languages)
         // {
           # Manual overrides for language-specific variants
-          typst-de-DE = {
-            imports = [ ./typst.nix ];
-            typstConfig = {
-              enable = true;
-              language = "de-DE";
-            };
-          };
-          typst-en-US = {
-            imports = [ ./typst.nix ];
-            typstConfig = {
-              enable = true;
-              language = "en-US";
-            };
-          };
-          latex-de-DE = {
-            imports = [ ./latex.nix ];
-            latexConfig = {
-              enable = true;
-              language = "de-DE";
-            };
-          };
           latex-en-US = {
             imports = [ ./latex.nix ];
             latexConfig = {
