@@ -50,6 +50,15 @@ in
               ltex.language = cfg.language;
               ltex.languageToolHttpServerUri = cfg.languagetoolServer;
             };
+            onAttach.function = ''
+              require("ltex_extra").setup({
+                load_langs = { "${cfg.language}" },
+                init_check = true,
+                -- Save dictionaries to ~/.local/share/nvim/ltex (Global)
+                -- Alternatively, change this to ".ltex" to save a local dictionary per-project
+                path = vim.fn.stdpath("data") .. "/ltex", 
+              })
+            '';
           };
           tinymist = {
             enable = true;
@@ -57,11 +66,12 @@ in
         };
       };
       conform-nvim.settings.formatters_by_ft.typst = [ "typstyle" ];
-      # ltex-extra = {
-      #   enable = true;
-      #   settings = {
-      #     loadLangs = [ cfg.language ];
-      #   };
+      ltex-extra = {
+        enable = true;
+        settings = {
+          loadLangs = [ cfg.language ];
+        };
+      };
       # };
     };
   };
