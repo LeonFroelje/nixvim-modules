@@ -18,6 +18,11 @@ in
       ];
       default = "de-DE";
     };
+    languagetoolServer = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = "URL for the languagetool server";
+    };
   };
   config = lib.mkIf cfg.enable {
     extraConfigLua = "
@@ -43,6 +48,7 @@ in
             cmd = [ "ltex-ls-plus" ];
             settings = {
               ltex.language = cfg.language;
+              ltex.languageToolHttpServerUri = cfg.languagetoolServer;
             };
           };
           tinymist = {
