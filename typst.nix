@@ -54,9 +54,7 @@ in
               require("ltex_extra").setup({
                 load_langs = { "${cfg.language}" },
                 init_check = true,
-                -- Save dictionaries to ~/.local/share/nvim/ltex (Global)
-                -- Alternatively, change this to ".ltex" to save a local dictionary per-project
-                path = vim.fn.stdpath("data") .. "/ltex", 
+                path = ".ltex", 
               })
             '';
           };
