@@ -38,6 +38,15 @@ in
             adapter = "llama_swap";
           };
         };
+        display = {
+          chat = {
+            window = {
+              layout = "vertical";
+              position = "right";
+              width = 0.3;
+            };
+          };
+        };
 
         adapters = {
           http = {
