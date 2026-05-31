@@ -54,6 +54,7 @@
           };
           all = import ./all.nix;
           common = import ./common.nix;
+          codecompanion = import ./codecompanion.nix;
         };
 
       # The helper function exported for your devShells
