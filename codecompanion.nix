@@ -40,24 +40,26 @@ in
         };
 
         adapters = {
-          # Use Nixvim's __raw to inject the Lua function required by CodeCompanion
-          llama_swap = {
-            __raw = ''
-              function()
-                return require("codecompanion.adapters").extend("openai_compatible", {
-                  env = {
-                    url = "${cfg.endpoint}",
-                    chat_url = "/v1/chat/completions",
-                    api_key = "LOCAL_DUMMY_KEY",
-                  },
-                  schema = {
-                    model = {
-                      default = "${cfg.model}",
+          http = {
+            # Use Nixvim's __raw to inject the Lua function required by CodeCompanion
+            llama_swap = {
+              __raw = ''
+                function()
+                  return require("codecompanion.adapters").extend("openai_compatible", {
+                    env = {
+                      url = "${cfg.endpoint}",
+                      chat_url = "/v1/chat/completions",
+                      api_key = "LOCAL_DUMMY_KEY",
                     },
-                  },
-                })
-              end
-            '';
+                    schema = {
+                      model = {
+                        default = "${cfg.model}",
+                      },
+                    },
+                  })
+                end
+              '';
+            };
           };
         };
       };
