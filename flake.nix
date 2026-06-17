@@ -34,6 +34,7 @@
         svelte = ./svelte.nix;
         latex = ./latex.nix;
         typst = ./typst.nix;
+        json = ./json.nix;
       };
     in
     {
