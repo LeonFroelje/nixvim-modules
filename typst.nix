@@ -10,6 +10,10 @@ in
 {
   options.typstConfig = with lib; {
     enable = mkEnableOption "typst config";
+    ltexPackage = mkOption {
+      type = types.package;
+      default = pkgs.ltex-ls-plus;
+    };
     language = mkOption {
       type = types.enum [
         "de-DE"
@@ -44,7 +48,7 @@ in
         servers = {
           ltex_plus = {
             enable = true;
-            # package = null;
+            package = cfg.ltexPackage;
             cmd = [ "ltex-ls-plus" ];
             settings = {
               ltex.language = cfg.language;
