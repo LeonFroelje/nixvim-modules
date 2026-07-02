@@ -35,6 +35,7 @@
         latex = ./latex.nix;
         typst = ./typst.nix;
         json = ./json.nix;
+        sql = ./sql.nix;
       };
     in
     {
