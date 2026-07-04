@@ -14,6 +14,10 @@
     ./typst.nix
     ./javascript.nix
     ./bash.nix
+    ./sql.nix
+    ./ltex.nix
+    ./codecompanion.nix
+    ./json.nix
   ];
 
   config = {
@@ -27,12 +31,20 @@
     # Enable document formats with a default language
     latexConfig = {
       enable = true;
-      language = "de-DE";
     };
     typstConfig = {
       enable = true;
-      language = "de-DE";
     };
+    ltexConfig = {
+      enable = true;
+      language = "de-DE";
+      languagetoolServer = "http://localhost:8081";
+    };
+    sqlConfig.enable = true;
+    codecompanionConfig = {
+      enable = true;
+    };
+    jsonConfig.enable = true;
 
     # Add extra global tools that were in your original monolithic config
     # environment.systemPackages = with pkgs; [
