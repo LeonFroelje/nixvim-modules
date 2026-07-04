@@ -36,6 +36,7 @@
         typst = ./typst.nix;
         json = ./json.nix;
         sql = ./sql.nix;
+        ltex = ./ltex.nix;
       };
     in
     {
@@ -47,13 +48,6 @@
         }) languages)
         // {
           # Manual overrides for language-specific variants
-          latex-en-US = {
-            imports = [ ./latex.nix ];
-            latexConfig = {
-              enable = true;
-              language = "en-US";
-            };
-          };
           all = import ./all.nix;
           common = import ./common.nix;
           codecompanion = import ./codecompanion.nix;
