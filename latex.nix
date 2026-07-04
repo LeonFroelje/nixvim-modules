@@ -10,6 +10,10 @@ in
 {
   options.latexConfig = with lib; {
     enable = mkEnableOption "LaTeX support with NixVim";
+    ltexPackage = mkOption {
+      type = types.package;
+      default = pkgs.ltex-ls-plus;
+    };
     language = mkOption {
       type = types.enum [
         "de-DE"
@@ -35,7 +39,7 @@ in
           # Grammar and Spell-checking
           ltex_plus = {
             enable = true;
-            package = null; # Usually managed via system path or specific derivation
+            package = cfg.ltexPackage;
             cmd = [ "ltex-ls-plus" ];
             settings = {
               ltex.language = cfg.language;
