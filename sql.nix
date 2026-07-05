@@ -22,12 +22,23 @@ in
     plugins.treesitter.grammarPackages = [ pkgs.vimPlugins.nvim-treesitter.builtGrammars.sql ];
     plugins.lsp.servers.sqls = {
       enable = true;
-      cmd = [
-        "${pkgs.sqls}"
-        "-config"
-        "${cfg.configFile}"
-      ];
+      cmd =
+        let
+          configArgument =
+            cF:
+            if cF != null then
+              [
+                "-config"
+                "${cfg.configFile}"
+              ]
+            else
+              [ ];
+        in
+        [
+          "${pkgs.sqls}"
+        ]
+        ++ configArgument cfg.configFile;
     };
-    # plugins.conform-nvim.settings.formatters_by_ft.rust = [ "rustfmt" ];
+    plugins.conform-nvim.settings.formatters_by_ft.rust = [ pkgs.sqlfluff ];
   };
 }
