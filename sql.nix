@@ -39,6 +39,6 @@ in
         ]
         ++ configArgument cfg.configFile;
     };
-    plugins.conform-nvim.settings.formatters_by_ft.rust = [ pkgs.sqlfluff ];
+    plugins.conform-nvim.settings.formatters_by_ft.sql = [ pkgs.sqlfluff ];
   };
 }
