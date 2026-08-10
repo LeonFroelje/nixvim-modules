@@ -48,6 +48,44 @@ in
           };
         };
 
+        prompt_library = {
+          "Typst Academic Proofreader" = {
+            strategy = "inline";
+            description = "Fix grammar & style while preserving Typst syntax and Math blocks";
+            opts = {
+              index = 1;
+              is_default = false;
+              is_slash_cmd = true;
+              modes = [ "v" ];
+              short_name = "typst-grammar";
+              auto_submit = true;
+            };
+            prompts = [
+              {
+                role = "system";
+                content = ''
+                  You are an expert copyeditor for academic mathematics papers written in Typst.
+                  Your task: Correct grammatical errors, awkward phrasing, and typos in Scientific English.
+
+                  CRITICAL RULES:
+                  1. DO NOT alter, delete, or reformat any Typst code, functions, tags, or imports (e.g., #cite(), #let, #show, #import).
+                  2. DO NOT modify inline math ($...$) or display math ($ ... $). Leave symbols, equations, and variable names completely untouched.
+                  3. Preserve technical mathematical terms (e.g., "surjective", "isomorphic", "without loss of generality").
+                  4. Output ONLY the corrected text replacement with no conversational comments or explanations.
+                '';
+              }
+              {
+                role = "user";
+                content = ''
+                  Please proofread and correct the following Typst selection:
+
+                  %{selection}
+                '';
+              }
+            ];
+          };
+        };
+
         adapters = {
           http = {
             # Use Nixvim's __raw to inject the Lua function required by CodeCompanion
