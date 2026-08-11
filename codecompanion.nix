@@ -54,6 +54,7 @@ in
             description = "Fix grammar & style while preserving Typst syntax and Math blocks";
             opts = {
               index = 1;
+              alias = "proofread";
               is_default = false;
               is_slash_cmd = true;
               modes = [ "v" ];
