@@ -129,7 +129,7 @@
     # c: Auto-wrap comments as you type
     # q: Allow formatting comments with 'gq'
     # j: Remove comment leaders when joining lines
-    formatoptions = "tcqj";
+    formatoptions = "cqj";
   };
   plugins = {
     telescope = {
