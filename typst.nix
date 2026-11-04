@@ -17,7 +17,8 @@ let
         hash = "sha256-fz83+npEyqjld+j75SrtIUM3Noq6pHOfrqBcCbtbf50=";
       };
 
-      cargoHash = null;
+      cargoHash = lib.fakeHash;
+      cargoDeps = null;
     }
   );
 in
