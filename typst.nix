@@ -21,7 +21,7 @@ let
       cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
         inherit (finalAttrs) src;
         name = "tinymist-${finalAttrs.version}-vendor";
-        hash = lib.fakeHash;
+        hash = "sha256-zn4HwlGJVI8LhtNuW0P3kZ7g+TyT/sys+ud2zKsWs84=";
       };
     }
   );
