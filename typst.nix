@@ -18,7 +18,11 @@ let
       };
 
       cargoHash = lib.fakeHash;
-      cargoDeps = null;
+      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+        inherit (finalAttrs) src;
+        name = "tinymist-${finalAttrs.version}-vendor";
+        hash = lib.fakeHash;
+      };
     }
   );
 in
