@@ -14,7 +14,7 @@ let
         owner = "Myriad-Dreamin";
         repo = "tinymist";
         tag = "v${finalAttrs.version}";
-        hash = lib.fakeHash;
+        hash = "sha256-fz83+npEyqjld+j75SrtIUM3Noq6pHOfrqBcCbtbf50=";
       };
 
       cargoHash = lib.fakeHash;
