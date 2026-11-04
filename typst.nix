@@ -17,7 +17,7 @@ let
         hash = "sha256-fz83+npEyqjld+j75SrtIUM3Noq6pHOfrqBcCbtbf50=";
       };
 
-      cargoHash = "sha256-zn4HwlGJVI8LhtNuW0P3kZ7g+TyT/sys+ud2zKsWs84=";
+      cargoHash = null;
     }
   );
 in
