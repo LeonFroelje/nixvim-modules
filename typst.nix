@@ -6,6 +6,20 @@
 }:
 let
   cfg = config.typstConfig;
+  tinymist = pkgs.tinymist.overrideAttrs (
+    finalAttrs: prevAttrs: {
+      version = "0.15.12";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "Myriad-Dreamin";
+        repo = "tinymist";
+        tag = "v${finalAttrs.version}";
+        hash = lib.fakeHash;
+      };
+
+      cargoHash = lib.fakeHash;
+    }
+  );
 in
 {
   options.typstConfig = with lib; {
@@ -13,7 +27,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     extraConfigLua = "
-      require('typst-preview').setup({ dependencies_bin = {['tinymist'] = \"${pkgs.tinymist}/bin/tinymist\" }})
+      require('typst-preview').setup({ dependencies_bin = {['tinymist'] = \"${tinymist}/bin/tinymist\" }})
     ";
     plugins = {
       typst-preview = {
