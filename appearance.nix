@@ -13,7 +13,7 @@ in
         "everforest"
         "onedark"
       ];
-      default = "everforest";
+      default = "onedark";
       description = "Neovim colorscheme family.";
     };
 
