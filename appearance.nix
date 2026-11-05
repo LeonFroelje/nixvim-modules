@@ -11,7 +11,7 @@ in
         "catppuccin"
         "tokyonight"
       ];
-      default = "gruvbox";
+      default = "catppuccin";
       description = "Neovim colorscheme family.";
     };
 
@@ -20,7 +20,7 @@ in
         "light"
         "dark"
       ];
-      default = "dark";
+      default = "light";
       description = "Light or dark colorscheme variant.";
     };
 
