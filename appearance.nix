@@ -115,7 +115,7 @@ in
           style = if dark then "dark" else "light";
           transparent = false;
           colors = lib.optionalAttrs (!dark) {
-            fg = "#24262d";
+            # fg = "#24262d";
             grey = "#626670";
             green = "#326b35";
             blue = "#2455b5";
