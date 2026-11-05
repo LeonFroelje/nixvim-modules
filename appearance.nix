@@ -117,7 +117,7 @@ in
           colors = lib.optionalAttrs (!dark) {
             fg = "#24262d";
             grey = "#626670";
-            green = "326b35";
+            green = "#326b35";
             blue = "#2455b5";
           };
         };
