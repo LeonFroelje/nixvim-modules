@@ -10,8 +10,9 @@ in
         "gruvbox"
         "catppuccin"
         "tokyonight"
+        "everforest"
       ];
-      default = "catppuccin";
+      default = "everforest";
       description = "Neovim colorscheme family.";
     };
 
@@ -22,6 +23,16 @@ in
       ];
       default = "light";
       description = "Light or dark colorscheme variant.";
+    };
+
+    everforest.contrast = lib.mkOption {
+      type = lib.types.enum [
+        "soft"
+        "medium"
+        "hard"
+      ];
+      default = "medium";
+      description = "Gruvbox contrast. Only applies when using Gruvbox.";
     };
 
     gruvbox.contrast = lib.mkOption {
@@ -82,6 +93,17 @@ in
         settings = {
           style = if dark then "night" else "day";
           light_style = "day";
+        };
+      };
+    })
+    (lib.mkIf (cfg.theme == "everforest") {
+      colorschemes.everforest = {
+        enable = true;
+        settings = {
+          background = cfg.everforest.contrast;
+          transparent_background = 0;
+          enable_italic = 1;
+
         };
       };
     })
