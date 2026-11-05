@@ -11,6 +11,7 @@ in
         "catppuccin"
         "tokyonight"
         "everforest"
+        "onedark"
       ];
       default = "everforest";
       description = "Neovim colorscheme family.";
@@ -104,6 +105,15 @@ in
           transparent_background = 0;
           enable_italic = 1;
 
+        };
+      };
+    })
+    (lib.mkIf (cfg.theme == "onedark") {
+      colorschemes.onedark = {
+        enable = true;
+        settings = {
+          style = if dark then "dark" else "light";
+          transparent = false;
         };
       };
     })
