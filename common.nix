@@ -5,24 +5,28 @@
   ...
 }:
 {
-  colorschemes.gruvbox = {
-    enable = true;
-    settings = {
-      terminal_colors = true;
-      undercurl = true;
-      underline = true;
-      bold = true;
-      italic = {
-        comments = true;
-        strings = true;
-        emphasis = true;
-        operators = false;
-        folds = true;
-      };
-      strikethrough = true;
-      contrast = "soft";
-    };
-  };
+  imports = [
+    ./appearance.nix
+  ];
+
+  # colorschemes.gruvbox = {
+  #   enable = true;
+  #   settings = {
+  #     terminal_colors = true;
+  #     undercurl = true;
+  #     underline = true;
+  #     bold = true;
+  #     italic = {
+  #       comments = true;
+  #       strings = true;
+  #       emphasis = true;
+  #       operators = false;
+  #       folds = true;
+  #     };
+  #     strikethrough = true;
+  #     contrast = "soft";
+  #   };
+  # };
   diagnostic.settings = {
     virtual_lines = {
       current_line = true;
@@ -109,7 +113,7 @@
     }
   ];
   opts = {
-    background = "dark";
+    # background = "dark";
     number = true;
     autoindent = true;
     tabstop = 2;
