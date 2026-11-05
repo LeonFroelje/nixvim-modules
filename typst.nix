@@ -6,25 +6,6 @@
 }:
 let
   cfg = config.typstConfig;
-  tinymist = pkgs.tinymist.overrideAttrs (
-    finalAttrs: prevAttrs: {
-      version = "0.15.12";
-
-      src = pkgs.fetchFromGitHub {
-        owner = "Myriad-Dreamin";
-        repo = "tinymist";
-        tag = "v${finalAttrs.version}";
-        hash = "sha256-fz83+npEyqjld+j75SrtIUM3Noq6pHOfrqBcCbtbf50=";
-      };
-
-      cargoHash = lib.fakeHash;
-      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
-        inherit (finalAttrs) src;
-        name = "tinymist-${finalAttrs.version}-vendor";
-        hash = "sha256-zn4HwlGJVI8LhtNuW0P3kZ7g+TyT/sys+ud2zKsWs84=";
-      };
-    }
-  );
 in
 {
   options.typstConfig = with lib; {
@@ -32,7 +13,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     extraConfigLua = "
-      require('typst-preview').setup({ dependencies_bin = {['tinymist'] = \"${tinymist}/bin/tinymist\" }})
+      require('typst-preview').setup({ dependencies_bin = {['tinymist'] = \"${pkgs.tinymist}/bin/tinymist\" }})
     ";
     plugins = {
       typst-preview = {
@@ -50,7 +31,7 @@ in
         servers = {
           tinymist = {
             enable = true;
-            package = tinymist;
+            package = pkgs.tinymist;
           };
         };
       };
