@@ -116,6 +116,7 @@ in
           transparent = false;
           colors = lib.optionalAttrs (!dark) {
             # fg = "#24262d";
+            black = "#000000";
             grey = "#626670";
             green = "#35a03a";
             blue = "#2455b5";
