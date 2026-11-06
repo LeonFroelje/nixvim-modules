@@ -146,8 +146,8 @@ in
       colorschemes.github-theme = {
         enable = true;
         settings.options.transparent = false;
-        colorscheme = if dark then "github_dark_default" else "github_light_default";
       };
+      colorscheme = if dark then "github_dark_default" else "github_light_default";
     })
   ];
 }
