@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.appearance;
   dark = cfg.mode == "dark";
@@ -12,8 +17,10 @@ in
         "tokyonight"
         "everforest"
         "onedark"
+        "material"
+        "github"
       ];
-      default = "onedark";
+      default = "material";
       description = "Neovim colorscheme family.";
     };
 
@@ -122,6 +129,23 @@ in
             blue = "#2455b5";
           };
         };
+      };
+    })
+    (lib.mkIf (cfg.theme == "material") {
+      extraPlugins = [ pkgs.vimPlugins.material-nvim ];
+      opts.termguicolors = true;
+      extraConfigLuaPre = ''
+        vim.g.material_style = "${if dark then "darker" else "lighter"}"
+        require("material").setup({
+          high_visibility = { lighter = true },        
+        })
+      '';
+      colorscheme = "material";
+    })
+    (lib.mkIf (cfg.theme == "github") {
+      colorschemes.github-theme = {
+        enable = true;
+        settings.options.transparent = false;
       };
     })
   ];
