@@ -28,6 +28,7 @@
       languages = {
         python = ./python.nix;
         rust = ./rust.nix;
+        lean = ./lean.nix;
         tofu = ./tofu.nix;
         bash = ./bash.nix;
         javascript = ./javascript.nix;

@@ -9,6 +9,7 @@
     ./common.nix
     ./python.nix
     ./rust.nix
+    ./lean.nix
     ./tofu.nix
     ./latex.nix
     ./typst.nix
@@ -24,6 +25,7 @@
     # Enable every language-specific configuration
     pythonConfig.enable = true;
     rustConfig.enable = true;
+    leanConfig.enable = true;
     tofuConfig.enable = true;
     bashConfig.enable = true;
     javascriptConfig.enable = true;
