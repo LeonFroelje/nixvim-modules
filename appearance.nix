@@ -20,7 +20,7 @@ in
         "material"
         "github"
       ];
-      default = "material";
+      default = "onedark";
       description = "Neovim colorscheme family.";
     };
 
